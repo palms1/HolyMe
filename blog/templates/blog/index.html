@@ -1,0 +1,50 @@
+{% extends 'blog/layout.html' %}
+
+
+{% block content %}
+
+
+
+<div class="album py-5 corfundo">
+        <div class="container">
+
+          <div class="row">
+          	{% for post in posts %}
+
+            <div class="col-md-4 col-sm-3 col-2 hover-slide">
+            	
+              <div class="card mb-4 box-shadow thumbnail">
+
+                <img class='responsiva' src="{{post.image}}">
+                <a href="/blog/{{post.id}}" class="btn btn-info" role="button">Leia Mais</a>
+                </div>
+
+              </div>
+             
+            
+             {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+<!-- <div class="album py-5 bg-light">
+        <div class="container">        
+          <div class="row">
+          	{% for post in posts %}
+            <div class="col-md-4 ">
+              <div class="card mb-4 box-shadow thumbnail">
+                <img class="card-img-top" src="{{post.image}}">
+                <div class="card-body content">
+                  <p class="card-text">{{post.title}}</p>                  
+                   <a href="#" class="info">Leia Mais</a>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+             {% endfor %}
+        </div>
+       
+    </div>
+</div> -->

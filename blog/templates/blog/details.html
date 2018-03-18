@@ -1,0 +1,20 @@
+{% extends 'blog/layout.html' %}
+
+
+{% block content %}
+<div class='container post'>
+<div class="card text-justify">
+  <div class="card-header text-center">
+    {{post.title}}
+  </div>
+  <div class="card-body">
+  	    <p class="text-justify">{{texto|linebreaks }}</p>
+  	    <div class="containerbotao">
+            <a href="/blog" class="btn btn-info botao">Voltar</a>
+        </div>
+    	
+  </div>
+  
+</div>
+</div>
+{% endblock %}
