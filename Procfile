@@ -1,0 +1,1 @@
+web: gunicorn holyMe.wsgi --log-file -
