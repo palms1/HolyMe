@@ -21,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'm0@4ito-@f$2h$79i8b6&ohda2nos)t*_8q6rcp5htjn8ic$ti'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['holy-me-django-palms1.c9users.io']
+ALLOWED_HOSTS = ['holyme-prod.herokuapp.com']
 
 
 # Application definition
@@ -78,15 +78,9 @@ WSGI_APPLICATION = 'holyMe.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'c9',
-        'USER': os.environ["C9_USER"],
-        'PASSWORD': '',
-        'HOST': os.environ["IP"],
-        'PORT': '3306'
-
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 
 
